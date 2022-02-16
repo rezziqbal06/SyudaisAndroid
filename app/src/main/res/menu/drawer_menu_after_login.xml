@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/nav_scan_absen"
+        android:icon="@drawable/ic_crop_free_black_24dp"
+        android:title="Scan Absensi"
+        android:visible="false"/>
+    <item
+        android:id="@+id/nav_update_password"
+        android:icon="@drawable/ic_dialpad_black_24dp"
+        android:title="Edit Password"
+        android:visible="false"/>
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Keluar" />
+
+</menu>

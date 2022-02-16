@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/colorQuranSecondary"
+            android:textColorHint="@color/colorQuranSecondary"
+            app:hintTextColor="@color/colorQuranSecondary"
+            app:helperTextTextColor="@color/colorQuranSecondary"
+            android:layout_margin="16dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_cari_ayat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:inputType="number"
+                android:textColor="@color/dark"
+                android:hint="Tulis nomor ayat"
+                android:imeOptions="actionSearch"
+                android:textColorLink="@color/colorQuranSecondary"
+                android:textColorHint="@color/colorQuranSecondary"
+                android:textColorHighlight="@color/colorQuranSecondary"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/btn_cari"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/colorAyat"
+            android:text="Cari"
+            android:layout_marginLeft="64dp"
+            android:layout_marginRight="64dp"
+            android:layout_marginBottom="16dp"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/footer_black"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

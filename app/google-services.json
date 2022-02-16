@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "312280727159",
+    "firebase_url": "https://syudais.firebaseio.com",
+    "project_id": "syudais",
+    "storage_bucket": "syudais.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312280727159:android:7cf8b894b5c76bcff61072",
+        "android_client_info": {
+          "package_name": "com.su.service"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312280727159-s7pim8drsrgiiebh9935f5u5l2bln9h3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.su.service",
+            "certificate_hash": "a7a87e94b74b6c0f6d978e18978b024a74822594"
+          }
+        },
+        {
+          "client_id": "312280727159-1o5s814q7bjlpbrde7jc4o6bng9iunj9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDClI0zkvnMUH7bLYJrenozCKkh6Pypd0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312280727159-1o5s814q7bjlpbrde7jc4o6bng9iunj9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

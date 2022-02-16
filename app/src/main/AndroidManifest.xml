@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.su.service">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.quran.TemplateActivity"></activity>
+        <activity android:name=".ui.absen2.Absen2Activity" />
+        <activity android:name=".ui.quran.SettingQuranDailyActivity" />
+        <activity android:name=".ui.quran.DetailQuranActivity" />
+        <activity
+            android:name=".ui.quran.QuranActivity"
+            android:label="@string/title_activity_quran"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver
+            android:name=".receiver.PopupReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".ui.reset.ResetPasswordActivity" />
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.absen.ScanActivity" />
+        <activity android:name=".ui.absen.AbsenActivity" />
+        <activity
+            android:name=".ui.lembaga.LembagaActivity"
+            android:label="@string/title_activity_lembaga"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.donasi.BuatEditDonasiActivity" />
+        <activity android:name=".ui.donasi.DetailDonasiActivity" />
+        <activity android:name=".ui.donasi.DonasiActivity" />
+        <activity android:name=".ui.diskusi.DiskusiActivity" />
+        <activity android:name=".ui.artikel.admin.ApprovalActivity" />
+        <activity android:name=".ui.doadzikir.BuatDoaDzikirActivity" />
+        <activity android:name=".ui.artikel.uploadartikel.UploadArtikelActivity" />
+        <activity
+            android:name=".ui.artikel.buateditartikel.BuatEditArtikelActivity"
+            android:label="@string/title_activity_buat_edit_artikel"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateVisible" />
+        <activity android:name=".ui.video.DetailVideoActivity" />
+        <activity
+            android:name=".ui.dzikir.DzikirActivity"
+            android:label="@string/title_activity_dzikir"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.doa.DoaActivity"
+            android:label="@string/title_activity_dzikir_doa"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.doadzikir.DetailDzikirDoaActivity"
+            android:label="@string/title_activity_dzikir_doa"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.video.VideoActivity"
+            android:label="@string/title_activity_video"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default_foto theme has no action bar) -->
+        <activity
+            android:name=".ui.artikel.detailartikel.DetailArtikelActivity"
+            android:label="@string/title_activity_detail_artikel"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.artikel.SearchingArtikelActivity" />
+        <activity
+            android:name=".ui.detailgambar.ImageFullScreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_image_full_screen"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".ui.kegiatan.DetailKegiatanActivity"
+            android:label="@string/title_activity_detail_kegiatan"
+            android:parentActivityName=".ui.main.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.su.service.ui.main.MainActivity" />
+        </activity>
+        <activity android:name=".ui.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".service.FCMService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service> <!-- Icon pada notif -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/icon_syudais" /> <!-- warna text notifikasi -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimaryDark" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+    </application>
+
+</manifest>

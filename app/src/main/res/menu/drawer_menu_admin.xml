@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/nav_approval"
+        android:icon="@drawable/ic_approval"
+        android:title="Persetujuan Artikel" />
+    <item
+        android:id="@+id/nav_panel_absen"
+        android:icon="@drawable/ic_panel_absen"
+        android:title="Panel Absensi" />
+    <item
+        android:id="@+id/nav_update_password"
+        android:icon="@drawable/ic_dialpad_black_24dp"
+        android:title="Edit Password"
+        android:visible="false"/>
+    <item
+        android:id="@+id/nav_setting_qd"
+        android:icon="@drawable/ic_sd"
+        android:title="Pengaturan Quran Daily" />
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Keluar" />
+
+</menu>

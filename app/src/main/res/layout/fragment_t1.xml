@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="#fffbdb"
+    android:orientation="vertical"
+    tools:context=".ui.quran.template.T1Fragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/atas"/>
+
+    <TextView
+        android:id="@+id/tv_judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Meminta Jalan Yang Lurus"
+        android:fontFamily="@font/duke_charming"
+        android:textSize="22sp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_arab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/arab_text"
+        android:fontFamily="@font/utsmanic"
+        android:textSize="22sp"
+        android:textColor="#925A07"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_artinya"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/default_arti"
+        android:fontFamily="@font/plusjakartasans_regular"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_surat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/default_referensi"
+        android:fontFamily="@font/plusjakartasans_bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"/>
+
+
+    <ImageView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bawah"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/footer_brown"/>
+</LinearLayout>

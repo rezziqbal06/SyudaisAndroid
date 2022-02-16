@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#131313"
+    android:orientation="vertical"
+    tools:context=".ui.quran.template.T4Fragment">
+    <ImageView
+        android:id="@+id/ornamen"
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
+        android:scaleType="fitStart"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/bg_t4_side" />
+    <LinearLayout
+        android:id="@+id/layout_text"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Meminta Jalan Yang Lurus"
+            android:fontFamily="@font/duke_charming"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="32dp"
+            android:gravity="end"/>
+        <TextView
+
+            android:id="@+id/tv_arab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/arab_text"
+            android:fontFamily="@font/utsmanic"
+            android:textSize="22sp"
+            android:textColor="#e0a825"
+            android:layout_marginBottom="8dp"
+            android:gravity="start"/>
+        <TextView
+
+            android:id="@+id/tv_artinya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/default_arti"
+            android:fontFamily="@font/plusjakartasans_regular"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/white"
+            android:gravity="start"/>
+        <TextView
+
+            android:id="@+id/tv_surat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/default_referensi"
+            android:fontFamily="@font/plusjakartasans_bold"
+            android:textSize="16sp"
+            android:textColor="#e0a825"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/footer_white" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

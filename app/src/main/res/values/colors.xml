@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E5F1F6</color>
+    <color name="colorPrimaryDark">#7DC9E7</color>
+    <color name="colorAccent">#EE7155</color>
+
+    <color name="colorPage">#FAFAFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="colorDark">#121212</color>
+
+    <color name="primaryText">#292929</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="dark">#121212</color>
+    <color name="colorQuranPrimary">#F0E5CF</color>
+    <color name="colorQuranSecondary">#C8C6C6</color>
+    <color name="colorAyat">#4B6587</color>
+
+    <color name="colorHadir">#60D300</color>
+    <color name="colorDefault">#E0E0E0</color>
+    <color name="colorAlpa">#E64A19</color>
+    <color name="colorIzin">#0288D1</color>
+    <color name="colorSakit">#FBC02D</color>
+</resources>
