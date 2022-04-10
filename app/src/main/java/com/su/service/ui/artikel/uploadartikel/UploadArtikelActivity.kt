@@ -27,7 +27,7 @@ class UploadArtikelActivity : AppCompatActivity() {
         sharedPrefManager = SharedPrefManager.getInstance(this)!!
         val data = intent.getParcelableExtra<ArtikelLocal>(EXTRA_DATA)
         showLoading()
-        tv_judul_artikel?.text = "judul: "+data.title
+        tv_judul_artikel?.text = "judul: "+data?.title
         uploadArtikel(data)
     }
 

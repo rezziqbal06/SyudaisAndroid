@@ -59,7 +59,7 @@ class Alerts {
             override fun onReceive(context: Context?, intent: Intent) {
                 abortBroadcast()
                 val msg = intent.getStringExtra(Intent.EXTRA_TEXT)
-                displayErrorInternal(activityContext, msg)
+                msg?.let { displayErrorInternal(activityContext, it) }
             }
 
             init {

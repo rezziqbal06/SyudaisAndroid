@@ -92,7 +92,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.su.service.ui.main.MainActivity" />
         </activity>
-        <activity android:name=".ui.main.MainActivity">
+        <activity android:name=".ui.main.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -100,7 +101,8 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".service.FCMService">
+        <service android:name=".service.FCMService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

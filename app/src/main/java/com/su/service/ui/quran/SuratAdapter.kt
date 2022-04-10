@@ -22,17 +22,21 @@ class SuratAdapter(private val list: ArrayList<Surat>?) :
             filterList = list
         }
     }
+
+    lateinit var listener: OnItemClickListener
+
     interface OnItemClickListener {
-        fun onItemClick(position: Int, kategori: String)
+        fun onItemClick(position: Int, surat: String)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        lateinit var listener: OnItemClickListener
         private var index = -1
-        fun setOnItemClickListener(listener: OnItemClickListener) {
-            this.listener = listener
-        }
+
 
         fun bind(surat: Surat) {
             with(itemView) {
@@ -41,9 +45,8 @@ class SuratAdapter(private val list: ArrayList<Surat>?) :
                 tv_nomor_surat?.text = surat.number
                 tv_nama_surat?.text = surat.nameLatin
                 setOnClickListener {
-                    val intent = Intent(context, DetailQuranActivity::class.java)
-                    intent.putExtra("nomor_surat", surat.number)
-                    context.startActivity(intent)
+                    surat?.number?.let { it1 -> listener.onItemClick(position, it1) }
+
                 }
             }
 

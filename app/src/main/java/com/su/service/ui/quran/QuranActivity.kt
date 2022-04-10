@@ -1,11 +1,13 @@
 package com.su.service.ui.quran
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
@@ -23,6 +25,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.su.service.R
 import com.su.service.model.quran.Surat
+import com.su.service.utils.CustomProgressDialog
 import com.su.service.utils.SharedPrefManager
 import com.su.service.utils.Utils
 import kotlinx.android.synthetic.main.activity_quran.*
@@ -38,7 +41,6 @@ class QuranActivity : AppCompatActivity() {
     private var adapter: SuratAdapter? = null
     private lateinit var viewModel: QuranDailyViewModel
     private lateinit var sharedPrefManager: SharedPrefManager
-    private lateinit var progressDialog:AppCompatDialog
     private var qdArab: String? = null
     private var qdArti: String? = null
     private var qdAyat: String? = null
@@ -47,6 +49,7 @@ class QuranActivity : AppCompatActivity() {
     private var isOpen: String? = "0"
     private var lebar = 0;
     private var panjang = 0;
+    private lateinit var cps : CustomProgressDialog
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,9 +57,9 @@ class QuranActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quran)
         sharedPrefManager = SharedPrefManager.getInstance(this)!!
         viewModel = ViewModelProvider(this).get(QuranDailyViewModel::class.java)
+        cps = CustomProgressDialog()
 
-        progressDialog = AppCompatDialog(this@QuranActivity)
-        progressDialog.setTitle("Tunggu sebentar")
+        getBookmark()
 
         val displayMetrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(displayMetrics)
@@ -64,14 +67,13 @@ class QuranActivity : AppCompatActivity() {
         panjang = displayMetrics.heightPixels
         isOpen = intent.getStringExtra("is_open")
 
-        if(isOpen == "1"){
-            getDataDailyQuranToShow()
-        }else{
-            getDataDailyQuran()
-        }
+//        if(isOpen == "1"){
+//            getDataDailyQuranToShow()
+//        }else{
+//            getDataDailyQuran()
+//        }
 
         Handler().postDelayed(Runnable {
-            Log.d("QuranActivity","parsing json")
             val jsonFileString = Utils(this@QuranActivity).getJsonDataFromAsset("list.json")
             val gson = Gson()
             val type = object: TypeToken<List<Surat>>() {}.type
@@ -82,11 +84,23 @@ class QuranActivity : AppCompatActivity() {
                 adapter = SuratAdapter(listSurat)
                 rv_list_quran?.layoutManager = LinearLayoutManager(this)
                 rv_list_quran?.setHasFixedSize(true)
+                adapter?.setOnItemClickListener(object: SuratAdapter.OnItemClickListener{
+                    override fun onItemClick(position: Int, surat: String) {
+                        cps.show(this@QuranActivity)
+                        val intent = Intent(this@QuranActivity, DetailQuranActivity::class.java)
+                        intent.putExtra("nomor_surat", surat)
+                        startActivity(intent)
+
+                    }
+
+                })
                 rv_list_quran?.adapter = adapter
                 layout_content?.setBackgroundColor(Color.parseColor("#F0E5CF"))
             }
         }, 100)
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = resources.getColor(R.color.colorQuranPrimary)
+        }
 
         cv_search?.setOnClickListener {
             sv_search_surat?.isIconified = false
@@ -108,10 +122,40 @@ class QuranActivity : AppCompatActivity() {
         cv_daily_quran?.setOnClickListener {
             val dialog = showQuranDaily()
             dialog.btn_bagikan.setOnClickListener {
-                progressDialog.show()
                 val bitmap = buatGambar(dialog)
                 shareBitmap(dialog ,bitmap)
             }
+        }
+    }
+
+    private fun getBookmark() {
+        val bookmark = sharedPrefManager.getBookmark
+        panel_bookmark.visibility = if(bookmark?.ayat.isNullOrEmpty()){
+            View.GONE
+        }else{
+            View.VISIBLE
+        }
+
+        if(!bookmark?.ayat.isNullOrEmpty()) tv_ayat?.text = "Ayat : "+bookmark?.ayat
+        tv_surat?.text = bookmark?.surat
+
+        panel_bookmark?.setOnClickListener {
+            Log.d("QuranActivity", "panel clicked")
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Buka Ayat Terakhir?")
+            builder.setMessage("")
+
+            builder.setPositiveButton("Iya") { dialog, which ->
+                cps.show(this@QuranActivity)
+                val intent = Intent(this@QuranActivity, DetailQuranActivity::class.java)
+                intent.putExtra("ayat_bookmark", bookmark?.ayat)
+                startActivity(intent)
+            }
+
+            builder.setNegativeButton("Nanti dulu") { dialog, which ->
+                dialog.dismiss()
+            }
+            builder.show()
         }
     }
 
@@ -127,7 +171,6 @@ class QuranActivity : AppCompatActivity() {
 
         Handler().postDelayed(
             Runnable {
-                progressDialog.hide()
                 view.btn_bagikan.visibility = View.VISIBLE
                 view.cv_qd.radius = 16F
             }, 300
@@ -288,6 +331,21 @@ class QuranActivity : AppCompatActivity() {
         }catch (e: JSONException){
             e.printStackTrace()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getBookmark()
+        if(cps.isInitialized()){
+            if(cps.dialog.isShowing){
+                cps.dialog.dismiss()
+            }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+
     }
 
 }

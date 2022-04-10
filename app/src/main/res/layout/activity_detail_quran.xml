@@ -9,10 +9,12 @@
     android:id="@+id/linearLayout"
     tools:context=".ui.quran.DetailQuranActivity">
     <LinearLayout
+        android:id="@+id/panel_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginBottom="8dp"
+        android:visibility="visible"
         android:padding="16dp">
         <ImageView
             android:id="@+id/img_back"
@@ -25,15 +27,66 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Judul Surat"
-            android:fontFamily="@font/quicksand_bold"
+            android:fontFamily="@font/plusjakartasans_bold"
             android:textColor="@color/colorQuranSecondary"
-            android:textSize="20sp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_ayat"
+    <RelativeLayout
+        android:id="@+id/panel_select"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_ayat"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        android:background="@color/colorAyat"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/tv_selected_ayat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selected: "
+            android:fontFamily="@font/plusjakartasans_bold"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+        <ImageView
+            android:id="@+id/img_share_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/img_clear"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_share_quran_white"
+            android:layout_marginRight="32dp"/>
+        <ImageView
+            android:id="@+id/img_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_baseline_clear_24"
+            android:layout_marginRight="16dp"/>
+    </RelativeLayout>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nest_scroll_view"
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/bismillah"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:src="@drawable/bismillah"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_ayat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/item_ayat"/>
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

@@ -29,11 +29,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/arab_text"
-        android:fontFamily="@font/utsmanic"
+        android:fontFamily="@font/isep_misbah"
+        android:lineHeight="48dp"
         android:textSize="22sp"
         android:textColor="#925A07"
         android:layout_marginBottom="8dp"
-        android:gravity="center"/>
+        android:gravity="center"
+        tools:targetApi="p" />
 
     <TextView
         android:id="@+id/tv_artinya"
@@ -63,6 +65,7 @@
         android:src="@drawable/bawah"/>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/footer_brown"/>
+        android:layout_height="30dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/footer_blue"/>
 </LinearLayout>

@@ -25,7 +25,7 @@ class DetailVideoActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedLi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_video)
         official_player_view?.initialize(Constants.google_apikey, this)
-        video = intent.getParcelableExtra(EXTRA_DATA)
+        video = intent.getParcelableExtra(EXTRA_DATA)!!
         updateUI()
     }
 

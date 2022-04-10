@@ -8,6 +8,8 @@ import com.su.service.model.kategori.KategoriItem
 import com.su.service.model.pelanggan.Data
 import com.su.service.model.pelanggan.Pelanggan
 import com.su.service.model.qddetail.Qurandaily
+import com.su.service.model.quran.Ayat
+import com.su.service.model.quran.Bookmark
 import com.su.service.model.qurandaily.QurandailyItem
 
 
@@ -62,6 +64,20 @@ class SharedPrefManager(private val mCtx: Context) {
         val gson = Gson()
         val json = gson.toJson(item)
         editor.putString(KEY_KATEGORI, json)
+        editor.apply()
+    }
+
+    fun setBookmark(item: Bookmark){
+        val sharedPreferences =
+            mCtx.getSharedPreferences(
+                SHARED_PREF_NAME,
+                Context.MODE_PRIVATE
+            )
+        val editor = sharedPreferences.edit()
+        editor.putString(KEY_AYAT_BOOK, item.ayat)
+        editor.putString(KEY_NO_SURAT_BOOK, item.no_surat)
+        editor.putString(KEY_SURAT_BOOK, item.surat)
+        item.position?.let { editor.putInt(KEY_POSITION_AYAT_BOOK_BOOK, it) }
         editor.apply()
     }
 
@@ -137,6 +153,21 @@ class SharedPrefManager(private val mCtx: Context) {
             return qd
         }
 
+    val getBookmark: Bookmark?
+        get() {
+            val sharedPreferences =
+                mCtx.getSharedPreferences(
+                    SHARED_PREF_NAME,
+                    Context.MODE_PRIVATE
+                )
+            val item = Bookmark()
+            item.no_surat = sharedPreferences.getString(KEY_NO_SURAT_BOOK, null)
+            item.surat = sharedPreferences.getString(KEY_SURAT_BOOK, null)
+            item.ayat = sharedPreferences.getString(KEY_AYAT_BOOK, null)
+            item.position = sharedPreferences.getInt(KEY_POSITION_AYAT_BOOK_BOOK,0)
+            return item
+        }
+
     //this method will logout the user
     fun logout() {
         val sharedPreferences =
@@ -200,6 +231,11 @@ class SharedPrefManager(private val mCtx: Context) {
         private const val KEY_NAMA_SURAT = "namaSurat"
         private const val KEY_NO_AYAT = "noAyat"
         private const val KEY_IS_PICK = "isPick"
+
+        private const val KEY_AYAT_BOOK = "ayat_book"
+        private const val KEY_NO_SURAT_BOOK = "no_surat_book"
+        private const val KEY_SURAT_BOOK = "surat_book"
+        private const val KEY_POSITION_AYAT_BOOK_BOOK = "position_ayat_book"
 
 
         private var mInstance: SharedPrefManager? = null

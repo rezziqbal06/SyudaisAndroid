@@ -21,4 +21,6 @@
     <color name="colorAlpa">#E64A19</color>
     <color name="colorIzin">#0288D1</color>
     <color name="colorSakit">#FBC02D</color>
+    <color name="dialogBackground">#8F4E4E4E</color>
+    <color name="color_selected">#1B0288D1</color>
 </resources>

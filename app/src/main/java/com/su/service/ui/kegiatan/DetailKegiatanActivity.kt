@@ -83,7 +83,7 @@ class DetailKegiatanActivity : AppCompatActivity(), OnMapReadyCallback {
             tv_detail_tempat?.text = data?.tempat
             tv_detail_tempat2?.text = data?.alamat
             val deskripsi = data?.deskripsi?.let { HtmlToStringGenerator.generate(it) }
-            Log.d("isi deskripsi", deskripsi)
+            deskripsi?.let { Log.d("isi deskripsi", it) }
             tv_detail_deskripsi?.text = deskripsi
             val tglAwal = DateGenerator.getTanggal("yy-MM-dd HH:mm:ss","E dd MMMM yyyy",data?.sdate)
             val tglAkhir = DateGenerator.getTanggal("yy-MM-dd HH:mm:ss","E dd MMMM yyyy",data?.edate)

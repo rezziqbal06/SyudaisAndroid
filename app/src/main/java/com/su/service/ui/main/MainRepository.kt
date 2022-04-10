@@ -16,7 +16,7 @@ class MainRepository{
     ): MutableLiveData<UpdateResponse>? {
         val data: MutableLiveData<UpdateResponse> = MutableLiveData<UpdateResponse>()
         Api.service.checkUpdate(apikey, versionName)
-            .enqueue(object : Callback<UpdateResponse> {
+            ?.enqueue(object : Callback<UpdateResponse> {
                 override fun onResponse(
                     call: Call<UpdateResponse>,
                     response: Response<UpdateResponse>

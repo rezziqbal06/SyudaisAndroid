@@ -130,7 +130,7 @@ class QuranDailyRepository{
                     t: Throwable
                 ) {
                     Log.d(TAG, call.request().toString())
-                    Log.d(TAG, t.message)
+                    t.message?.let { Log.d(TAG, it) }
                     data.postValue(null)
                 }
             })

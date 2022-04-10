@@ -372,7 +372,7 @@ interface ApiService{
     fun checkUpdate(
         @Query("apikey") apikey: String?,
         @Field("version_name") versionName: String?
-    ): Call<UpdateResponse>
+    ): Call<UpdateResponse>?
 
     //donasi
 

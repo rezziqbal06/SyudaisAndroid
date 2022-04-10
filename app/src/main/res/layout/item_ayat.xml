@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/panel_ayat"
     android:padding="16dp">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -30,7 +32,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
+                android:visibility="gone"
                 app:srcCompat="@drawable/ic_compare_24px_outlined"
+                android:layout_gravity="right"/>
+            <ImageView
+                android:id="@+id/img_bookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/ic_baseline_bookmark_border_24"
                 android:layout_gravity="right"/>
             <ImageView
                 android:id="@+id/img_share"
@@ -53,15 +63,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/isep_misbah"
+        android:lineHeight="48dp"
         android:textSize="24sp"
         android:textColor="@color/colorAyat"
         android:text="@string/default_arab"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="8dp"
+        tools:targetApi="p" />
     <TextView
         android:id="@+id/tv_arti_ayat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/quicksand"
+        android:fontFamily="@font/plusjakartasans_regular"
         android:textSize="18sp"
         android:textColor="@color/colorQuranSecondary"
         android:text="@string/default_arti"/>

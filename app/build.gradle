@@ -11,8 +11,8 @@ android {
         applicationId "com.su.service"
         minSdkVersion 19
         targetSdkVersion 31
-        versionCode 9
-        versionName "1.2.7"
+        versionCode 10
+        versionName "1.2.9"
         multiDexEnabled = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -87,9 +87,9 @@ dependencies {
     //Retrofit
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.13'
     implementation 'com.squareup.okio:okio:2.2.2'
-    implementation 'com.squareup.okhttp3:okhttp:3.14.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.7'
     //Google API MAP
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
     implementation 'com.google.android.gms:play-services-location:16.0.0'

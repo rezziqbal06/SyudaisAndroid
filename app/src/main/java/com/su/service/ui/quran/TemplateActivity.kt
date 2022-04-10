@@ -30,10 +30,10 @@ class TemplateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_template)
 
-        surat = intent.getStringExtra("surat")
-        arab = intent.getStringExtra("arab")
-        artinya = intent.getStringExtra("artinya")
-        judul = intent.getStringExtra("judul")
+        surat = intent.getStringExtra("surat").toString()
+        arab = intent.getStringExtra("arab").toString()
+        artinya = intent.getStringExtra("artinya").toString()
+        judul = intent.getStringExtra("judul").toString()
 
         val templates = ArrayList<Template>()
         templates.add(Template(T1Fragment(), "#fffbdb","#686234"))

@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="@color/white"
-        android:fontFamily="@font/utsmanic"
+        android:fontFamily="@font/isep_misbah"
         android:gravity="center"
         android:textSize="28sp"
         android:text="الٓمٓ"/>
